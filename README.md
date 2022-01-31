@@ -1,30 +1,16 @@
-**!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
-
-Temas:
- - Grafos1
- - Grafos2
- - PD
- - D&C
- - Greed
- - Final 
- 
- **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
- 
- (Apague essa seção)
-
-# NomedoProjeto
+# Knight’s Tour 
 
 **Número da Lista**: X<br>
-**Conteúdo da Disciplina**: XXXXXXXXXX<br>
+**Conteúdo da Disciplina**: Grafos 1<br>
 
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 17/0080102  |  Lucas Gomes Lopes |
+| 19/0106565  |  Fernando Miranda Calil |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+O projeto visa solucionar o Problema do Cavalo (também conhecido como Knight's Tour), que é um problema matemático envolvendo o movimento da peça do cavalo no tabuleiro de xadrez. O problema consiste em colocar a peça do cavalo em qualquer casa do tabuleiro e mover a peça para as 63 casas restantes sem jamais passar pela mesma casa mais de uma vez.
 
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
