@@ -35,9 +35,22 @@ class Graph
         }
     }
 
+    getLessConnections(v, visited) {
+        let min = 1000;
+        let posMin = -1;
+
+        for (let i = 0; i < v.length; i++)
+            if (!visited[v[i]] && this.adj[v[i]].length <= min) {
+                min = this.adj[v[i]].length;
+                posMin = i;
+            }
+        return posMin;
+    }
+
 	dfsKnight(v)
 	{	
 		let visited = new Array(this.adjSize);
+
 		for(let i = 0; i < this.adjSize; i++)
 			visited[i] = false;
 
@@ -56,24 +69,29 @@ class Graph
       Também só funciona quando o nó inicial é par (Não sei o motivo)
     */
     knightTour(v, visited, n, path, limit){ 
-        let done;
+        let done = false;
+        let next = -2;
+        let temp = this.adj[v];
         visited[v] = true;
 		path.push(v);
 
-        if(n < limit){
-            done = false;
-            let j = 0;
-            while((j < this.adj[v].length) && (!done)){
-                if (!visited[this.adj[v][j]])
-                    done = this.knightTour(this.adj[v][j], visited, n+1, path, limit);
-                j = j + 1;
+        if (n < limit){
+            while(!done && next != -1) {
+                if (next > -1 && temp.length > 1)
+                    next = this.getLessConnections(temp.splice(next, 1), visited);
+                else if (next != -1) {
+                    next = this.getLessConnections(temp, visited);
+                    done = this.knightTour(this.adj[v][next], visited, n+1, path, limit);
+                }
             }
-            if(!done){
+
+            if (this.path.length < this.N**2) {
+                console.log("pop");
                 path.pop();
-                visited[v] = false
+                visited[v] = false;
             }
         }
-        else{
+        else if (path.length == this.N**2) {
             done = true;
         }
         return done;
@@ -88,8 +106,8 @@ class Graph
 	}
 }
 
-g = new Graph(5); // inicializa um tabuleiro 5x5
+g = new Graph(8); // inicializa um tabuleiro 5x5
 g.createAdjacencyList() 
 console.log(g.adj)
-g.dfsKnight(0)
-console.log(g.path)
+g.dfsKnight(1)
+console.log(g.path.sort())
