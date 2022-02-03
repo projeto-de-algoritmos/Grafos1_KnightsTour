@@ -8,6 +8,7 @@ class Graph
 		this.adj = new Array(this.adjSize); //Lista de adjacências
         this.path = []; //Solução do knight's tour
         this.lastpop = -1;
+		this.visited = new Array(this.adjSize);
 
 		for(let i = 0; i < this.adjSize; i++)
 			this.adj[i] = [];
@@ -36,26 +37,25 @@ class Graph
         }
     }
 
-    getLessConnections(v, visited) {
+    getLessConnections(v) {
         let min = 10;
         let posMin = -1;
 
-        for (let i = 0; i < v.length; i++)
-            if (!visited[v[i]] && this.adj[v[i]].length <= min) {
+        for (let i = 0; i < v.length; i++) {
+            if (!this.visited[v[i]] && this.adj[v[i]].length <= min) {
                 min = this.adj[v[i]].length;
                 posMin = i;
             }
+        }
         return posMin;
     }
 
 	dfsKnight(v)
 	{	
-		let visited = new Array(this.adjSize);
-
 		for(let i = 0; i < this.adjSize; i++)
-			visited[i] = false;
+			this.visited[i] = false;
 
-        if(this.knightTour(v, visited, 0, this.path, (this.adjSize) - 1)){
+        if(this.knightTour(v, 0, this.path, (this.adjSize) - 1)){
             console.log('deu bom')
         }else{
             console.log('deu ruim')
@@ -69,33 +69,30 @@ class Graph
       Por enquanto, só funciona em tabuleiros pequenos(explicação no final desse site: https://bradfieldcs.com/algos/graphs/knights-tour/)
       Também só funciona quando o nó inicial é par (Não sei o motivo)
     */
-    knightTour(v, visited, n, path, limit) {
+    knightTour(v, n, path, limit) {
         let done = false;
         let next = -2;
         let temp = this.adj[v].slice();
-        //console.log("added: ", v);
-        visited[v] = true;
+        this.visited[v] = true;
 		path.push(v);
 
         if (n < limit){
-            while(!done && next != -1) {
+            // proximo trás a aresta com o menor numero de conexões
+            // temp guarda um novo vetor que vai sendo reduzido toda vez que o caminho chega ao fim
+            while(!done && next != -1) { 
                 if (next >= 0 && temp.length > 0) {
-                    //console.log(temp);
                     temp.splice(next, 1);
-                    //console.log(temp);
                 }
-                next = this.getLessConnections(temp, visited);
-                if (next != -1)
-                    done = this.knightTour(this.adj[v][next], visited, n+1, path, limit);
+                next = this.getLessConnections(temp);
+                if (next != -1) {
+                    done = this.knightTour(this.adj[v][this.adj[v].indexOf(temp[next], 0)], n+1, path, limit);
+                }
             }
+            // lastpop impede que o vetor de uma posição fique adicionando e retirando o mesmo elemento infinitamente
             if (!done) {
                 this.lastpop = v;
                 this.path.pop();
-                //console.log("pop: ", v);
-                //console.log(this.path);
-                //console.log(visited);
-                //console.log(v);
-                visited[v] = false;
+                this.visited[v] = false;
             }
         }
         else {
@@ -113,10 +110,10 @@ class Graph
 	}
 }
 
-g = new Graph(4); // inicializa um tabuleiro 5x5
+g = new Graph(8); // inicializa um tabuleiro 5x5
 g.createAdjacencyList() 
 console.log(g.adj)
-g.dfsKnight(6)
+g.dfsKnight(5)
 //console.log(g.path)
 console.log(g.path.sort(function(a, b) {
     return a - b;
