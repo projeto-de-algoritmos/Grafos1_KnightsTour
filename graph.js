@@ -7,6 +7,7 @@ class Graph
         this.adjSize = v * v; //Tamanho da lista de adjacências (quantidade de casas em um tabuleiro)
 		this.adj = new Array(this.adjSize); //Lista de adjacências
         this.path = []; //Solução do knight's tour
+        this.lastpop = -1;
 
 		for(let i = 0; i < this.adjSize; i++)
 			this.adj[i] = [];
@@ -36,7 +37,7 @@ class Graph
     }
 
     getLessConnections(v, visited) {
-        let min = 1000;
+        let min = 10;
         let posMin = -1;
 
         for (let i = 0; i < v.length; i++)
@@ -68,30 +69,36 @@ class Graph
       Por enquanto, só funciona em tabuleiros pequenos(explicação no final desse site: https://bradfieldcs.com/algos/graphs/knights-tour/)
       Também só funciona quando o nó inicial é par (Não sei o motivo)
     */
-    knightTour(v, visited, n, path, limit){ 
+    knightTour(v, visited, n, path, limit) {
         let done = false;
         let next = -2;
-        let temp = this.adj[v];
+        let temp = this.adj[v].slice();
+        //console.log("added: ", v);
         visited[v] = true;
 		path.push(v);
 
         if (n < limit){
             while(!done && next != -1) {
-                if (next > -1 && temp.length > 1)
-                    next = this.getLessConnections(temp.splice(next, 1), visited);
-                else if (next != -1) {
-                    next = this.getLessConnections(temp, visited);
-                    done = this.knightTour(this.adj[v][next], visited, n+1, path, limit);
+                if (next >= 0 && temp.length > 0) {
+                    //console.log(temp);
+                    temp.splice(next, 1);
+                    //console.log(temp);
                 }
+                next = this.getLessConnections(temp, visited);
+                if (next != -1)
+                    done = this.knightTour(this.adj[v][next], visited, n+1, path, limit);
             }
-
-            if (this.path.length < this.N**2) {
-                console.log("pop");
-                path.pop();
+            if (!done) {
+                this.lastpop = v;
+                this.path.pop();
+                //console.log("pop: ", v);
+                //console.log(this.path);
+                //console.log(visited);
+                //console.log(v);
                 visited[v] = false;
             }
         }
-        else if (path.length == this.N**2) {
+        else {
             done = true;
         }
         return done;
@@ -106,8 +113,11 @@ class Graph
 	}
 }
 
-g = new Graph(8); // inicializa um tabuleiro 5x5
+g = new Graph(4); // inicializa um tabuleiro 5x5
 g.createAdjacencyList() 
 console.log(g.adj)
-g.dfsKnight(1)
-console.log(g.path.sort())
+g.dfsKnight(6)
+//console.log(g.path)
+console.log(g.path.sort(function(a, b) {
+    return a - b;
+  }))
