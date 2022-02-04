@@ -54,9 +54,12 @@ class Graph
 	{	
 		for(let i = 0; i < this.adjSize; i++)
 			this.visited[i] = false;
+        
+        this.path = []
 
         if(this.knightTour(v, 0, this.path, (this.adjSize) - 1)){
             console.log('deu bom')
+            console.log(this.path)
         }else{
             console.log('deu ruim')
         }
@@ -102,19 +105,9 @@ class Graph
 
     }
 	
-	// Function to add an edge into the graph
 	addEdge(v, w)
 	{
-		// Add w to v's list.
 		this.adj[v].push(w);
 	}
 }
 
-g = new Graph(8); // inicializa um tabuleiro 5x5
-g.createAdjacencyList() 
-console.log(g.adj)
-g.dfsKnight(5)
-//console.log(g.path)
-console.log(g.path.sort(function(a, b) {
-    return a - b;
-  }))
