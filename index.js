@@ -51,6 +51,10 @@ function restartChessBoard(n){
     //     }
     //     colorSquare = colorSquare * (-1);
     // };
+    g = new Graph(size)
+    g.createAdjacencyList()
+
+    chessBoard.setAttribute('style', `pointer-events: all`)
     const allDiv = document.querySelectorAll(".divs");
     for(let i = 0; i < allDiv.length; i++){
         allDiv[i].innerHTML = '';
@@ -63,8 +67,8 @@ function initializeKnightTour(){
     for(let i = 0; i < allDiv.length; i++){
         allDiv[i].addEventListener('click', () => knight(i))
     }
-
 }
+
 
 // function removeDivs(){
 //     for(let i = 0; i < divs.length; i++){
@@ -91,8 +95,8 @@ async function knight(i){
     img.setAttribute('src', 'imgs/Chess-Knight.svg');
     img.classList.add('imgs');
 
+    chessBoard.setAttribute('style', `pointer-events: none`)
     for(let i = 0; i < g.path.length; i++){
-        // allDiv[g.path[i]].style.background = `green`;
         allDiv[g.path[i]].appendChild(img);
         
         await new Promise(resolve => setTimeout(resolve, 500));
