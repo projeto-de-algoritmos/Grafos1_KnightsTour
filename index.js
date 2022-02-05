@@ -22,6 +22,7 @@ function createBoard(n){
     for(let i = 0; i < gridSize; i++){
         divs[i] = document.createElement('div');
         divs[i].classList.add('divs');
+
         if((i % n == 0) && i > 0){
             colorSquare = colorSquare * (-1);
         }
@@ -31,24 +32,29 @@ function createBoard(n){
             divs[i].style.background = `rgb(184,139,74)`;
         }
         colorSquare = colorSquare * (-1);
+        
         chessBoard.appendChild(divs[i]);
     };
 
 }
 
 function restartChessBoard(n){
-    let colorSquare = 1;
-    for(let i = 0; i < gridSize; i++){
-        if((i % n == 0) && i > 0){
-            colorSquare = colorSquare * (-1);
-        }
-        if(colorSquare == 1){
-            divs[i].style.background = `rgb(227,193,111)`;
-        }else{
-            divs[i].style.background = `rgb(184,139,74)`;
-        }
-        colorSquare = colorSquare * (-1);
-    };
+    // let colorSquare = 1;
+    // for(let i = 0; i < gridSize; i++){
+    //     if((i % n == 0) && i > 0){
+    //         colorSquare = colorSquare * (-1);
+    //     }
+    //     if(colorSquare == 1){
+    //         divs[i].style.background = `rgb(227,193,111)`;
+    //     }else{
+    //         divs[i].style.background = `rgb(184,139,74)`;
+    //     }
+    //     colorSquare = colorSquare * (-1);
+    // };
+    const allDiv = document.querySelectorAll(".divs");
+    for(let i = 0; i < allDiv.length; i++){
+        allDiv[i].innerHTML = '';
+    }
 }
 
 function initializeKnightTour(){
@@ -81,9 +87,22 @@ async function knight(i){
     g.dfsKnight(i);
     const allDiv = document.querySelectorAll(".divs");
 
+    img = document.createElement('img');
+    img.setAttribute('src', 'imgs/Chess-Knight.svg');
+    img.classList.add('imgs');
+
     for(let i = 0; i < g.path.length; i++){
-        allDiv[g.path[i]].style.background = `green`;
+        // allDiv[g.path[i]].style.background = `green`;
+        allDiv[g.path[i]].appendChild(img);
+        
         await new Promise(resolve => setTimeout(resolve, 500));
+        if (i != (g.path.length - 1)){
+            text = document.createElement('div');
+            text.innerHTML = 'X';
+            text.classList.add('text');
+            allDiv[g.path[i]].appendChild(text);
+        }
+       
 
     }
 }
