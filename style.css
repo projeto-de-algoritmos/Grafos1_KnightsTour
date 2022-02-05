@@ -29,11 +29,16 @@ header h1{
     border-radius: 10px;
 }
 
+body {
+    height: 900px;
+}
+
 #chessBoard{
     margin: 0;
     position: relative;
-    left: 50%;
+    left: 33%;
     transform: translateX(-50%);
+    transform: translateY(-120%);
 
     width: 600px;
     height: 600px;
@@ -49,6 +54,8 @@ header h1{
     /* box-shadow: 10px 10px 15px 10px rgb(116, 113, 113); */
 
 }
+
+
 
 #button{
     font-size: 20px;
@@ -72,6 +79,7 @@ header h1{
 #button:hover{
     filter: brightness(90%);
 }
+
 
 #label{
     margin-left: 70px;
@@ -117,4 +125,30 @@ header h1{
 .imgs{
     width: 50%;
     height: 100%;
+}
+
+
+/*          Tutorial               */
+
+#tutorial {
+    height: 750px;
+    width: 500px;
+    position: relative;
+    transform: translateY(-10%);
+}
+
+#tutorialButton{
+    position: relative;
+    padding: 15px 16px;
+    right: -76%;
+    transform: translateY(-2405%);
+    font-size:0;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 25px;
+}
+
+
+#tutorialButton:focus {
+    outline: none;
 }

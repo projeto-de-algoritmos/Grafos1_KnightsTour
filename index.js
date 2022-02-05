@@ -1,6 +1,7 @@
 const chessBoard = document.querySelector('#chessBoard');
 const button = document.querySelector('#button');
 const userInput = document.querySelector('#gridSize');
+const tutorialButton = document.querySelector('#tutorialButton');
 const divs = [];
 let size = 8;
 let gridSize = size ** 2;
@@ -15,6 +16,10 @@ initializeKnightTour();
 
 button.addEventListener('click', () => {
     restartChessBoard(size)
+});
+
+tutorialButton.addEventListener('click', () => {
+    changeTutorialPage(document.querySelector('img'))
 });
 
 function createBoard(n){
@@ -36,6 +41,17 @@ function createBoard(n){
         chessBoard.appendChild(divs[i]);
     };
 
+}
+
+
+
+function changeTutorialPage(img) {
+    if (img.getAttribute('src') == 'imgs/tutorial1.svg'){
+        img.src = "imgs/tutorial2.svg"
+    }
+    else {
+        img.src = "imgs/tutorial1.svg"
+    }
 }
 
 function restartChessBoard(n){
