@@ -34,7 +34,7 @@ Para poder rodar o projeto, você deve possuir um browser de internet instalado 
 
 **O projeto pode ser acessado através do link:**
 
-![Knight's Tour](https://grafos1knightstour.s3.sa-east-1.amazonaws.com/index.html)
+[Grafos 1 - Knight's Tour](https://grafos1knightstour.s3.sa-east-1.amazonaws.com/index.html)
 
 **Caso preferir rodar o projeto de forma local:**
 
@@ -44,7 +44,7 @@ Para poder rodar o projeto, você deve possuir um browser de internet instalado 
 
 2- Fazer download do projeto:
 
-   git clone git@github.com:projeto-de-algoritmos/Grafos1_KnightsTour.git
+>   git clone git@github.com:projeto-de-algoritmos/Grafos1_KnightsTour.git
 
 3- Abrir o arquivo index.html utilizando o seu browser preferido.
 
