@@ -2,6 +2,9 @@ body{
     margin: 0;
     background-image: url('imgs/chessBoard.jpg');
     background-size: cover;
+
+    height: 100vh;
+
 }
 
 header{
@@ -29,9 +32,6 @@ header h1{
     border-radius: 10px;
 }
 
-body {
-    height: 900px;
-}
 
 #chessBoard{
     margin: 0;
@@ -51,13 +51,10 @@ body {
     border: 15px solid rgb(39, 25, 14);
 
     border-radius: 10px;
-    /* box-shadow: 10px 10px 15px 10px rgb(116, 113, 113); */
 
 }
 
-
-
-#button{
+#restartButton{
     font-size: 20px;
     font-weight: bold;
 
@@ -68,30 +65,17 @@ body {
     border: 2px solid rgb(39, 25, 14);
     
     padding: 10px;
-    /* margin-left: 10px; */
 
     cursor: pointer;
 
-    transition: background 0.2s;
-
 }
 
-#button:hover{
-    filter: brightness(90%);
+#restartButton:hover{
+    filter: brightness(85%);
 }
 
 
-#label{
-    margin-left: 70px;
-    
-}
-
-#gridSize{
-    margin-left: 10px;
-    width: 50px;
-}
-
-#gridValue{
+#buttonArea{
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -101,7 +85,7 @@ body {
     padding: 15px;
 }
 
-.divs{
+.chessSquares{
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -111,18 +95,18 @@ body {
     transition: background 0.2s;
 }
 
-.divs:hover{
+.chessSquares:hover{
     filter: brightness(90%);
 }
 
-.text{
+.visitedSquares{
     font-size: 35px;
     font-weight: bold;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 
-.imgs{
+.chessKnight{
     width: 50%;
     height: 100%;
 }
