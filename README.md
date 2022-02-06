@@ -13,6 +13,7 @@
 O projeto visa solucionar o Problema do Cavalo (também conhecido como Knight's Tour), que é um problema matemático envolvendo o movimento da peça do cavalo no tabuleiro de xadrez. O problema consiste em colocar a peça do cavalo em qualquer casa do tabuleiro e mover a peça para as 63 casas restantes sem jamais passar pela mesma casa mais de uma vez.
 
 ## Screenshots
+<<<<<<< HEAD
 Página Inicial:
 <img src="imgs/idle.png" alt="Foto da página em modo inicial.">
 
@@ -22,7 +23,13 @@ Algoritmo em funcionamento:
 Página após a execução correta do algoritmo:
 <img src="imgs/done.png" alt="Foto do pagina após execução do algoritmo.">
 
+=======
+![Screenshot 1](imgs/screenshots/screenshot1.png)
+>>>>>>> 9bbb21c9c2edc4f84fce7271ee8ae11d51055058
 
+![Screenshot 2](imgs/screenshots/screenshot2.png)
+
+![Screenshot 3](imgs/screenshots/screenshot3.png)
 ## Instalação 
 **Linguagem**: Java Script<br>
 

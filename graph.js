@@ -65,13 +65,6 @@ class Graph
         }
 	}
 
-
-    /*baseado em http://www.pas.rochester.edu/~rsarkis/csc162/_static/lectures/Graphs%20-%20DFS.pdf 
-      e em https://panda.ime.usp.br/panda/static/pythonds_pt/07-Grafos/ImplementingKnightsTour.html
-
-      Por enquanto, só funciona em tabuleiros pequenos(explicação no final desse site: https://bradfieldcs.com/algos/graphs/knights-tour/)
-      Também só funciona quando o nó inicial é par (Não sei o motivo)
-    */
     knightTour(v, n, path, limit) {
         let done = false;
         let next = -2;
@@ -80,7 +73,7 @@ class Graph
 		path.push(v);
 
         if (n < limit){
-            // proximo trás a aresta com o menor numero de conexões
+            // proximo traz a aresta com o menor numero de conexões
             // temp guarda um novo vetor que vai sendo reduzido toda vez que o caminho chega ao fim
             while(!done && next != -1) { 
                 if (next >= 0 && temp.length > 0) {
