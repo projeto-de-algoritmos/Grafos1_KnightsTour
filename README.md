@@ -13,23 +13,18 @@
 O projeto visa solucionar o Problema do Cavalo (também conhecido como Knight's Tour), que é um problema matemático envolvendo o movimento da peça do cavalo no tabuleiro de xadrez. O problema consiste em colocar a peça do cavalo em qualquer casa do tabuleiro e mover a peça para as 63 casas restantes sem jamais passar pela mesma casa mais de uma vez.
 
 ## Screenshots
-<<<<<<< HEAD
+
 Página Inicial:
-<img src="imgs/idle.png" alt="Foto da página em modo inicial.">
+![Screenshot 1](imgs/screenshots/screenshot1.png)
+
 
 Algoritmo em funcionamento:
-<img src="imgs/working.png" alt="Foto do algoritmo em funcionamento.">
-
-Página após a execução correta do algoritmo:
-<img src="imgs/done.png" alt="Foto do pagina após execução do algoritmo.">
-
-=======
-![Screenshot 1](imgs/screenshots/screenshot1.png)
->>>>>>> 9bbb21c9c2edc4f84fce7271ee8ae11d51055058
-
 ![Screenshot 2](imgs/screenshots/screenshot2.png)
 
+
+Página após a execução correta do algoritmo:
 ![Screenshot 3](imgs/screenshots/screenshot3.png)
+
 ## Instalação 
 **Linguagem**: Java Script<br>
 
@@ -37,10 +32,11 @@ Para poder rodar o projeto, você deve possuir um browser de internet instalado 
 
 ## Acesso
 
-O projeto pode ser acessado através do link:
-<a src="https://grafos1knightstour.s3.sa-east-1.amazonaws.com/index.html">Grafos 1 - Knight's Tour</a>
+**O projeto pode ser acessado através do link:**
 
-Caso preferir rodar o projeto de forma local:
+![Knight's Tour](https://grafos1knightstour.s3.sa-east-1.amazonaws.com/index.html)
+
+**Caso preferir rodar o projeto de forma local:**
 
 1- Ir até o diretório que deseja colocar os arquivos:
 
@@ -48,7 +44,7 @@ Caso preferir rodar o projeto de forma local:
 
 2- Fazer download do projeto:
 
->   git clone git@github.com:projeto-de-algoritmos/Grafos1_KnightsTour.git
+   git clone git@github.com:projeto-de-algoritmos/Grafos1_KnightsTour.git
 
 3- Abrir o arquivo index.html utilizando o seu browser preferido.
 
