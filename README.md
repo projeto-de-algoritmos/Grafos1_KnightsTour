@@ -1,6 +1,6 @@
 # Knight’s Tour 
 
-**Número da Lista**: 02<br>
+**Número da Lista**: 01<br>
 **Conteúdo da Disciplina**: Grafos 1<br>
 
 ## Alunos
