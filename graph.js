@@ -58,10 +58,9 @@ class Graph
         this.path = []
 
         if(this.knightTour(v, 0, this.path, (this.adjSize) - 1)){
-            console.log('deu bom')
             console.log(this.path)
         }else{
-            console.log('deu ruim')
+            console.log('Algo deu errado!')
         }
 	}
 

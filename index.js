@@ -73,7 +73,7 @@ async function knight(initialNode){
     g.dfsKnight(initialNode);
     const chessSquares = document.querySelectorAll(".chessSquares");
 
-    let chessKnight = document.createElement('img');
+    const chessKnight = document.createElement('img');
     chessKnight.setAttribute('src', 'imgs/Chess-Knight.svg');
     chessKnight.classList.add('chessKnight');
 
